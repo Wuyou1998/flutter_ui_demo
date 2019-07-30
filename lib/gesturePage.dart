@@ -67,7 +67,7 @@ class _GesturePageState extends State<GesturePage> {
 
   _printMsg(String s) {
     setState(() {
-      _printString += ' ,$s';
+      _printString += ' $s,';
     });
   }
 

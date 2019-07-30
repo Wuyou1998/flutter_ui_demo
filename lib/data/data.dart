@@ -12,7 +12,8 @@ List<String> mainList = [
   'AnimationPage2',
   'HeroAnimationPage',
   'HeroAnimationPage2',
-  'FutureBuilderPage'
+  'FutureBuilderPage',
+  'ListPage'
 
 ];
 

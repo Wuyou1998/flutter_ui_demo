@@ -12,6 +12,7 @@ import 'heroAnimatiomPage.dart';
 import 'imageExhibitionPage.dart';
 import 'launchPage.dart';
 import 'layout_page.dart';
+import 'list_page.dart';
 import 'photoAppDemo.dart';
 
 void main() => runApp(MyApp());
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         'HeroAnimationPage':(context)=>HeroAnimationPage(),
         'HeroAnimationPage2':(context)=>HeroAnimationPage2(),
         'FutureBuilderPage':(context)=>HttpPage(),
+        'ListPage':(context)=>ListPage(),
       },
     );
   }
@@ -131,6 +133,9 @@ class MyList extends StatelessWidget {
         break;
       case 11:
         Navigator.pushNamed(context, 'FutureBuilderPage');
+        break;
+      case 12:
+        Navigator.pushNamed(context, 'ListPage');
         break;
     }
   }
