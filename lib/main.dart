@@ -4,10 +4,10 @@ import 'package:flutter_ui_demo/stateful.dart';
 import 'package:flutter_ui_demo/stateless.dart';
 
 import 'HeroAnimationPage2.dart';
+import 'animationPage.dart';
 import 'animationPage2.dart';
 import 'data/data.dart';
 import 'gesturePage.dart';
-import 'animationPage.dart';
 import 'heroAnimatiomPage.dart';
 import 'imageExhibitionPage.dart';
 import 'launchPage.dart';
@@ -17,48 +17,68 @@ import 'photoAppDemo.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Brightness _brightness = Brightness.light;
+  String _themeName='Theme.light';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        brightness: _brightness,
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Center(
+              child: Text(
+            'Flutter Demo',
+          )),
+        ),
+        body: Column(
+          children: <Widget>[
+            RaisedButton(
+              onPressed: () {
+                setState(() {
+                  if (_brightness == Brightness.dark){
+                    _brightness = Brightness.light;
+                    _themeName='Theme.light';
+                  }
+                  else{
+                    _brightness = Brightness.dark;
+                    _themeName='Theme.dark';
+                  }
+                });
+              },
+              child: Text(_themeName),
+            ),
+            Expanded(child: MyList()),
+          ],
+        ),
+      ),
       routes: {
         'LessGroupPage': (context) => LessGroupPage(),
         'FulGroupPage': (context) => FulGroupPage(),
         'FlutterLayoutPage': (context) => FlutterLayoutPage(),
         'GesturePage': (context) => GesturePage(),
-        'LaunchPage':(context)=>LaunchPage(),
-        'PhotoAppDemo':(context)=>PhotoAppDemo(),
-        'ImageExhibitionPage':(context)=>ImageExhibitionPage(),
-        'AnimationPage':(context)=>AnimationPage(),
-        'AnimationPage2':(context)=>AnimationPage2(),
-        'HeroAnimationPage':(context)=>HeroAnimationPage(),
-        'HeroAnimationPage2':(context)=>HeroAnimationPage2(),
-        'FutureBuilderPage':(context)=>HttpPage(),
-        'ListPage':(context)=>ListPage(),
+        'LaunchPage': (context) => LaunchPage(),
+        'PhotoAppDemo': (context) => PhotoAppDemo(),
+        'ImageExhibitionPage': (context) => ImageExhibitionPage(),
+        'AnimationPage': (context) => AnimationPage(),
+        'AnimationPage2': (context) => AnimationPage2(),
+        'HeroAnimationPage': (context) => HeroAnimationPage(),
+        'HeroAnimationPage2': (context) => HeroAnimationPage2(),
+        'FutureBuilderPage': (context) => HttpPage(),
+        'ListPage': (context) => ListPage(),
       },
     );
   }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-
-  MyHomePage({this.title});
-
-  build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Center(
-              child: Text(
-            title,
-          )),
-        ),
-        body: MyList(),
-      );
 }
 
 class MyList extends StatelessWidget {
@@ -78,7 +98,7 @@ class MyList extends StatelessWidget {
                 textAlign: _textAlign,
               ),
               dense: true,
-              onTap: () =>_switchToPage(index, context),
+              onTap: () => _switchToPage(index, context),
             ),
             Divider(
               indent: 10, //左侧间距
@@ -111,8 +131,8 @@ class MyList extends StatelessWidget {
         Navigator.pushNamed(context, 'GesturePage');
         break;
       case 4:
-      Navigator.pushNamed(context, 'LaunchPage');
-      break;
+        Navigator.pushNamed(context, 'LaunchPage');
+        break;
       case 5:
         Navigator.pushNamed(context, 'PhotoAppDemo');
         break;
