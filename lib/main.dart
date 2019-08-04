@@ -31,6 +31,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'wy',
         brightness: _brightness,
         primarySwatch: Colors.blue,
       ),
