@@ -23,6 +23,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String _fontFamily='customFont';
   Brightness _brightness = Brightness.light;
   String _themeName='Theme.light';
 
@@ -31,16 +32,26 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        fontFamily: 'wy',
+        fontFamily: _fontFamily,
         brightness: _brightness,
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Center(
-              child: Text(
+          leading: GestureDetector(
+              onTap: (){
+                setState(() {
+                  if(_fontFamily=='customFont')
+                    _fontFamily='';
+                  else
+                    _fontFamily='customFont';
+                });
+              },
+              child: Icon(Icons.accessibility)),
+          title: Text(
             'Flutter Demo',
-          )),
+            //style: TextStyle(fontFamily: _fontFamily),
+          ),
         ),
         body: Column(
           children: <Widget>[
