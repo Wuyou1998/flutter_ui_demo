@@ -13,7 +13,8 @@ List<String> mainList = [
   'HeroAnimationPage',
   'HeroAnimationPage2',
   'FutureBuilderPage',
-  'ListPage'
+  'ListPage',
+  'FlutterLogoPage'
 
 ];
 

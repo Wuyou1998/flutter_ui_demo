@@ -7,6 +7,7 @@ import 'HeroAnimationPage2.dart';
 import 'animationPage.dart';
 import 'animationPage2.dart';
 import 'data/data.dart';
+import 'flutter_logo_page.dart';
 import 'gesturePage.dart';
 import 'heroAnimatiomPage.dart';
 import 'imageExhibitionPage.dart';
@@ -168,6 +169,9 @@ class MyList extends StatelessWidget {
         break;
       case 12:
         Navigator.pushNamed(context, 'ListPage');
+        break;
+      case 13:
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>FlutterLogoPage()));
         break;
     }
   }
